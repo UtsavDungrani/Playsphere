@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>PlaySphere</title>
+    <link rel="icon" type="image/x-icon" href="img/favico.ico" />
+    <link rel="stylesheet" href="style.css" />
+    <style>
+      /* Keyframes for the text appearance */
+      @keyframes fadeInLetter {
+        0% {
+          opacity: 0;
+          transform: translateY(10px);
+        }
+        100% {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      /* Glow effect on the text */
+      .glow-text {
+        text-shadow: 0 0 15px rgba(255, 255, 255, 0.5),
+          0 0 30px rgba(255, 0, 255, 0.6);
+      }
+
+      /* Apply animation to each letter of the website name */
+      .animated-name span {
+        opacity: 0;
+        display: inline-block;
+        animation: fadeInLetter 0.6s ease-in-out forwards;
+      }
+
+      .animated-name span:nth-child(1) {
+        animation-delay: 0.1s;
+      }
+
+      .animated-name span:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+
+      .animated-name span:nth-child(3) {
+        animation-delay: 0.3s;
+      }
+
+      .animated-name span:nth-child(4) {
+        animation-delay: 0.4s;
+      }
+
+      .animated-name span:nth-child(5) {
+        animation-delay: 0.5s;
+      }
+
+      .animated-name span:nth-child(6) {
+        animation-delay: 0.6s;
+      }
+
+      .animated-name span:nth-child(7) {
+        animation-delay: 0.7s;
+      }
+
+      .animated-name span:nth-child(8) {
+        animation-delay: 0.8s;
+      }
+
+      .animated-name span:nth-child(9) {
+        animation-delay: 0.9s;
+      }
+
+      .animated-name span:nth-child(10) {
+        animation-delay: 1s;
+      }
+
+      /* Glowing effect for buttons */
+      .glow-button {
+        box-shadow: 0 0 15px rgba(255, 0, 255, 0.6);
+        transition: all 0.3s ease-in-out;
+      }
+
+      .glow-button:hover {
+        box-shadow: 0 0 25px rgba(255, 0, 255, 1);
+        transform: scale(1.05);
+      }
+
+      /* Background animation */
+      @keyframes backgroundAnimation {
+        0% {
+          background-position: 0 0;
+        }
+        50% {
+          background-position: 100% 100%;
+        }
+        100% {
+          background-position: 0 0;
+        }
+      }
+
+      .bg-animated {
+        background: linear-gradient(45deg, #4e00ff, #0f0c29, #1c1c1c);
+        background-size: 400% 400%;
+        animation: backgroundAnimation 15s ease infinite;
+      }
+
+      /* Infinite text animation */
+      .animated-name span {
+        animation: fadeInLetter 2s ease-in-out infinite;
+      }
+    </style>
+  </head>
+  <body class="bg-gray-900 font-sans tracking-wide text-white">
+    <!-- Header -->
+    <header class="bg-animated text-center py-16 shadow-lg">
+      <h1 class="text-6xl font-extrabold glow-text animated-name">
+        <span>P</span>
+        <span>l</span>
+        <span>a</span>
+        <span>y</span>
+        <span>S</span>
+        <span>p</span>
+        <span>h</span>
+        <span>e</span>
+        <span>r</span>
+        <span>e</span>
+      </h1>
+      <p class="mt-3 text-2xl font-light animate-text">
+        Explore the world of games. Play, Challenge, Win!
+      </p>
+    </header>
+
+    <!-- Main Content -->
+    <main class="container mx-auto py-16 px-4">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Tic Tac Toe Card -->
+        <div
+          class="bg-white shadow-2xl rounded-lg overflow-hidden transform transition-all hover:scale-105 hover:shadow-2xl duration-300 ease-in-out"
+        >
+          <img
+            src="img/tictactoe.png"
+            alt="Tic Tac Toe Game"
+            class="w-full h-56 object-cover rounded-t-lg"
+          />
+          <div class="p-6">
+            <h2 class="text-3xl font-semibold text-gray-800">Tic Tac Toe</h2>
+            <p class="mt-2 text-gray-600 text-lg">
+              Enjoy a quick and fun game of Tic Tac Toe. Play against a friend!
+            </p>
+            <a
+              href="tic tac toe/tic_tac_toe.html"
+              class="mt-4 inline-block bg-indigo-600 text-white py-3 px-6 rounded-full font-semibold transition duration-200 hover:bg-indigo-700 hover:scale-105"
+              >Play Now</a
+            >
+          </div>
+        </div>
+
+        <!-- Sudoku Card -->
+        <div
+          class="bg-white shadow-2xl rounded-lg overflow-hidden transform transition-all hover:scale-105 hover:shadow-2xl duration-300 ease-in-out"
+        >
+          <img
+            src="img/sudoku.png"
+            alt="Sudoku Game"
+            class="w-full h-56 object-cover rounded-t-lg"
+          />
+          <div class="p-6">
+            <h2 class="text-3xl font-semibold text-gray-800">Sudoku</h2>
+            <p class="mt-2 text-gray-600 text-lg">
+              Test your brain with a variety of Sudoku puzzles. Improve your
+              skills over time.
+            </p>
+            <a
+              href="sudoku/sudoku.html"
+              class="mt-4 inline-block bg-indigo-600 text-white py-3 px-6 rounded-full font-semibold transition duration-200 hover:bg-indigo-700 hover:scale-105"
+              >Play Now</a
+            >
+          </div>
+        </div>
+
+        <!-- Ludo Card -->
+        <div
+          class="bg-white shadow-2xl rounded-lg overflow-hidden transform transition-all hover:scale-105 hover:shadow-2xl duration-300 ease-in-out"
+        >
+          <img
+            src="img/ludo.png"
+            alt="Ludo Game"
+            class="w-full h-56 object-cover rounded-t-lg"
+          />
+          <div class="p-6">
+            <h2 class="text-3xl font-semibold text-gray-800">Ludo</h2>
+            <p class="mt-2 text-gray-600 text-lg">
+              Experience the classic Ludo with a new twist. Play with your
+              friends!
+            </p>
+            <a
+              href="ludo/dist/index.html"
+              class="mt-4 inline-block bg-indigo-600 text-white py-3 px-6 rounded-full font-semibold transition duration-200 hover:bg-indigo-700 hover:scale-105"
+              >Play Now</a
+            >
+          </div>
+        </div>
+
+        <!-- Chess Card -->
+        <div
+          class="bg-white shadow-2xl rounded-lg overflow-hidden transform transition-all hover:scale-105 hover:shadow-2xl duration-300 ease-in-out"
+        >
+          <img
+            src="img/chess.png"
+            alt="Chess Game"
+            class="w-full h-56 object-cover rounded-t-lg"
+          />
+          <div class="p-6">
+            <h2 class="text-3xl font-semibold text-gray-800">Chess</h2>
+            <p class="mt-2 text-gray-600 text-lg">
+              Experience the game of chess with a new twist, And improve your
+              logistic skills!
+            </p>
+            <a
+              href="chess/index.html"
+              class="mt-4 inline-block bg-indigo-600 text-white py-3 px-6 rounded-full font-semibold transition duration-200 hover:bg-indigo-700 hover:scale-105"
+              >Play Now</a
+            >
+          </div>
+        </div>
+
+        <!-- Snake and ledders Card -->
+        <div
+          class="bg-white shadow-2xl rounded-lg overflow-hidden transform transition-all hover:scale-105 hover:shadow-2xl duration-300 ease-in-out"
+        >
+          <img
+            src="img/snake-and-ledders.png"
+            alt="Snake and ledders Game"
+            class="w-full h-56 object-cover rounded-t-lg"
+          />
+          <div class="p-6">
+            <h2 class="text-3xl font-semibold text-gray-800">
+              Snake and ledders
+            </h2>
+            <p class="mt-2 text-gray-600 text-lg">
+              Experience the exciting game of snake and ledders with friends!
+            </p>
+            <a
+              href="snakes-and-ladders/index.html"
+              class="mt-4 inline-block bg-indigo-600 text-white py-3 px-6 rounded-full font-semibold transition duration-200 hover:bg-indigo-700 hover:scale-105"
+              >Play Now</a
+            >
+          </div>
+        </div>
+
+        <!-- Connect4 Card -->
+        <div
+          class="bg-white shadow-2xl rounded-lg overflow-hidden transform transition-all hover:scale-105 hover:shadow-2xl duration-300 ease-in-out"
+        >
+          <img
+            src="img/connect4.png"
+            alt="Connect4 Game"
+            class="w-full h-56 object-cover rounded-t-lg"
+          />
+          <div class="p-6">
+            <h2 class="text-3xl font-semibold text-gray-800">Connect4</h2>
+            <p class="mt-2 text-gray-600 text-lg">
+              Experience the exciting game of Connect4 with friends!
+            </p>
+            <a
+              href="connect4/index.html"
+              class="mt-4 inline-block bg-indigo-600 text-white py-3 px-6 rounded-full font-semibold transition duration-200 hover:bg-indigo-700 hover:scale-105"
+              >Play Now</a
+            >
+          </div>
+        </div>
+
+        <!-- Car Card -->
+        <div
+          class="bg-white shadow-2xl rounded-lg overflow-hidden transform transition-all hover:scale-105 hover:shadow-2xl duration-300 ease-in-out"
+        >
+          <img
+            src="img/car.png"
+            alt="Car Game"
+            class="w-full h-56 object-cover rounded-t-lg"
+          />
+          <div class="p-6">
+            <h2 class="text-3xl font-semibold text-gray-800">Car Game</h2>
+            <p class="mt-2 text-gray-600 text-lg">
+              Experience the thrilling game of car in single playe and improve
+              your driving skills!
+            </p>
+            <a
+              href="cargame/index.html"
+              class="mt-4 inline-block bg-indigo-600 text-white py-3 px-6 rounded-full font-semibold transition duration-200 hover:bg-indigo-700 hover:scale-105"
+              >Play Now</a
+            >
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 text-white text-center py-6">
+      <p class="text-sm">© 2024 PlaySphere. All Rights Reserved.</p>
+      <p class="text-sm mt-2">Built with love and JavaScript.</p>
+    </footer>
+    <script src="security.js"></script>
+  </body>
+</html>

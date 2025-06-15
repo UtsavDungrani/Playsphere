@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Game Board</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="stylesheet" href="main.css">
+        <link rel="icon" type="image/x-icon" href="../../img/favico.ico">
+    </head>
+    <body>
+        <div class="flex items-center justify-center min-h-screen bg-gray-400">
+            <div id="main" class="bg-gray-400 main">
+                <div class="bg-white board" id="board">
+                    <!-- homes -->
+                    <!-- Top-left corner cells -->
+                    <div class="home bg-red-500 border-solid border-2 border-black top-left" id="home-red">
+                        <!-- Red tokens -->
+                        <div class="bg-white h-40 w-40 m-9 grid grid-rows-2 grid-cols-2" id="red-h">
+                            <button class="token token-red m-5" id="token-red-1"></button>
+                            <button class="token token-red m-5" id="token-red-2"></button>
+                            <button class="token token-red m-5" id="token-red-3"></button>
+                            <button class="token token-red m-5" id="token-red-4"></button>
+                        </div>
+                        <div class="player h-6 w-40 text-2xl" id="player-red">Player Red</div>
+                    </div>
+                    <!-- Top-right corner cells -->
+                    <div class="home bg-green-500 border-solid border-2 border-black top-right" id="home-green">
+                        <!-- Green tokens -->
+                        <div class="bg-white h-40 w-40 m-9 grid grid-rows-2 grid-cols-2" id="green-h">
+                            <button class="token token-green m-5" id="token-green-1"></button>
+                            <button class="token token-green m-5" id="token-green-2"></button>
+                            <button class="token token-green m-5" id="token-green-3"></button>
+                            <button class="token token-green m-5" id="token-green-4"></button>
+                        </div>
+                        <div class="player h-6 w-40 text-2xl" id="player-green">Player Green</div>
+                    </div>
+                    <!-- Bottom-right corner cells -->
+                    <div class="home bg-yellow-400 border-solid border-2 border-black bottom-right" id="home-yellow">
+                        <!-- Yellow tokens -->
+                        <div class="bg-white h-40 w-40 m-9 grid grid-rows-2 grid-cols-2" id="yellow-h">
+                            <button class="token token-yellow m-5" id="token-yellow-1"></button>
+                            <button class="token token-yellow m-5" id="token-yellow-2"></button>
+                            <button class="token token-yellow m-5" id="token-yellow-3"></button>
+                            <button class="token token-yellow m-5" id="token-yellow-4"></button>
+                        </div>
+                        <div class="player h-6 w-40 text-2xl" id="player-yellow">Player Yellow</div>
+                    </div>
+                    <!-- Bottom-left corner cells -->
+                    <div class="home bg-blue-500 border-solid border-2 border-black bottom-left" id="home-blue">
+                        <!-- Blue tokens -->
+                        <div class="bg-white h-40 w-40 m-9 grid grid-rows-2 grid-cols-2" id="blue-h">
+                            <button class="token token-blue m-5" id="token-blue-1"></button>
+                            <button class="token token-blue m-5" id="token-blue-2"></button>
+                            <button class="token token-blue m-5" id="token-blue-3"></button>
+                            <button class="token token-blue m-5" id="token-blue-4"></button>
+                        </div>
+                        <div class="player h-6 w-40 text-2xl" id="player-blue">Player Blue</div>
+                    </div>
+                    <!-- Center -->
+                    <div class="center" id="center">
+                        <div class="triangle bg-red-500" id="red_home"></div>
+                        <div class="triangle bg-green-500"  id="green_home"></div>
+                        <div class="triangle bg-yellow-400" id="yellow_home"></div>
+                        <div class="triangle bg-blue-500" id="blue_home"></div>
+                    </div>
+                    <!-- Rest of the board cells -->
+
+                    <!-- Red path -->
+                    <div class="path_red">
+                        <div id="c1" class="cell bg-red-500" style="grid-column: 2; grid-row: 1;"></div>
+                        <div id="c2" class="cell" style="grid-column: 3; grid-row: 1;"></div>
+                        <div id="c3" class="cell" style="grid-column: 4; grid-row: 1;"></div>
+                        <div id="c4" class="cell" style="grid-column: 5; grid-row: 1;"></div>
+                        <div id="c5" class="cell" style="grid-column: 6; grid-row: 1;"></div>
+                        <div id="c45" class="cell" style="grid-column: 6; grid-row: 3;"></div>
+                        <div id="c46" class="cell" style="grid-column: 5; grid-row: 3;"></div>
+                        <div id="c47" class="cell" style="grid-column: 4; grid-row: 3;"></div>
+                        <div id="c48" class="cell" style="grid-column: 3; grid-row: 3;"></div>
+                        <div id="c49" class="cell" style="grid-column: 2; grid-row: 3;"></div>
+                        <div id="c50" class="cell" style="grid-column: 1; grid-row: 3;"></div>
+                        <div id="c51" class="cell" style="grid-column: 1; grid-row: 2;"></div>
+                        <div id="c52" class="cell" style="grid-column: 1; grid-row: 1;"></div>
+                        <div id="rc1" class="cell bg-red-500" style="grid-column: 2; grid-row: 2;"></div>
+                        <div id="rc2" class="cell bg-red-500" style="grid-column: 3; grid-row: 2;"></div>
+                        <div id="rc3" class="cell bg-red-500" style="grid-column: 4; grid-row: 2;"></div>
+                        <div id="rc4" class="cell bg-red-500" style="grid-column: 5; grid-row: 2;"></div>
+                        <div id="rc5" class="cell bg-red-500" style="grid-column: 6; grid-row: 2;"></div>
+                    </div>
+
+                    <!-- Green path -->
+                    <div class="path_green">
+                        <div id="c14" class="cell bg-green-500" style="grid-column: 3; grid-row: 2;"></div>
+                        <div id="c6" class="cell" style="grid-column: 1; grid-row: 6;"></div>
+                        <div id="c7" class="cell" style="grid-column: 1; grid-row: 5;"></div>
+                        <div id="c8" class="cell" style="grid-column: 1; grid-row: 4;"></div>
+                        <div id="c9" class="cell" style="grid-column: 1; grid-row: 3;"></div>
+                        <div id="c10" class="cell" style="grid-column: 1; grid-row: 2;"></div>
+                        <div id="c11" class="cell" style="grid-column: 1; grid-row: 1;"></div>
+                        <div id="c12" class="cell" style="grid-column: 2; grid-row: 1;"></div>
+                        <div id="c13" class="cell" style="grid-column: 3; grid-row: 1;"></div>
+                        <div id="c15" class="cell" style="grid-column: 3; grid-row: 3;"></div>
+                        <div id="c16" class="cell" style="grid-column: 3; grid-row: 4;"></div>
+                        <div id="c17" class="cell" style="grid-column: 3; grid-row: 5;"></div>
+                        <div id="c18" class="cell" style="grid-column: 3; grid-row: 6;"></div>
+                        <div id="gc1" class="cell bg-green-500" style="grid-column: 2; grid-row: 2;"></div>
+                        <div id="gc2" class="cell bg-green-500" style="grid-column: 2; grid-row: 3;"></div>
+                        <div id="gc3" class="cell bg-green-500" style="grid-column: 2; grid-row: 4;"></div>
+                        <div id="gc4" class="cell bg-green-500" style="grid-column: 2; grid-row: 5;"></div>
+                        <div id="gc5" class="cell bg-green-500" style="grid-column: 2; grid-row: 6;"></div>
+                    </div>
+
+                    <!-- Yellow path -->
+                    <div class="path_yellow">
+                        <div id="c27" class="cell bg-yellow-400" style="grid-column: 5; grid-row: 3;"></div>
+                        <div id="c19" class="cell" style="grid-column: 1; grid-row: 1;"></div>
+                        <div id="c20" class="cell" style="grid-column: 2; grid-row: 1;"></div>
+                        <div id="c21" class="cell" style="grid-column: 3; grid-row: 1;"></div>
+                        <div id="c22" class="cell" style="grid-column: 4; grid-row: 1;"></div>
+                        <div id="c23" class="cell" style="grid-column: 5; grid-row: 1;"></div>
+                        <div id="c24" class="cell" style="grid-column: 6; grid-row: 1;"></div>
+                        <div id="c25" class="cell" style="grid-column: 6; grid-row: 2;"></div>
+                        <div id="c26" class="cell" style="grid-column: 6; grid-row: 3;"></div>
+                        <div id="c28" class="cell" style="grid-column: 4; grid-row: 3;"></div>
+                        <div id="c29" class="cell" style="grid-column: 3; grid-row: 3;"></div>
+                        <div id="c30" class="cell" style="grid-column: 2; grid-row: 3;"></div>
+                        <div id="c31" class="cell" style="grid-column: 1; grid-row: 3;"></div>
+                        <div id="yc1" class="cell bg-yellow-400" style="grid-column: 5; grid-row: 2;"></div>
+                        <div id="yc2" class="cell bg-yellow-400" style="grid-column: 4; grid-row: 2;"></div>
+                        <div id="yc3" class="cell bg-yellow-400" style="grid-column: 3; grid-row: 2;"></div>
+                        <div id="yc4" class="cell bg-yellow-400" style="grid-column: 2; grid-row: 2;"></div>
+                        <div id="yc5" class="cell bg-yellow-400" style="grid-column: 1; grid-row: 2;"></div>
+                    </div>
+                    
+                    <!-- Blue path -->
+                    <div class="path_blue">
+                        <div id="c40" class="cell bg-blue-500" style="grid-column: 1; grid-row: 5;"></div>
+                        <div id="c32" class="cell" style="grid-column: 3; grid-row: 1;"></div>
+                        <div id="c33" class="cell" style="grid-column: 3; grid-row: 2;"></div>
+                        <div id="c34" class="cell" style="grid-column: 3; grid-row: 3;"></div>
+                        <div id="c35" class="cell" style="grid-column: 3; grid-row: 4;"></div>
+                        <div id="c36" class="cell" style="grid-column: 3; grid-row: 5;"></div>
+                        <div id="c37" class="cell" style="grid-column: 3; grid-row: 6;"></div>
+                        <div id="c38" class="cell" style="grid-column: 2; grid-row: 6;"></div>
+                        <div id="c39" class="cell" style="grid-column: 1; grid-row: 6;"></div>
+                        <div id="c41" class="cell" style="grid-column: 1; grid-row: 4;"></div>
+                        <div id="c42" class="cell" style="grid-column: 1; grid-row: 3;"></div>
+                        <div id="c43" class="cell" style="grid-column: 1; grid-row: 2;"></div>
+                        <div id="c44" class="cell" style="grid-column: 1; grid-row: 1;"></div>
+                        <div id="bc1" class="cell bg-blue-500" style="grid-column: 2; grid-row: 5;"></div>
+                        <div id="bc2" class="cell bg-blue-500" style="grid-column: 2; grid-row: 4;"></div>
+                        <div id="bc3" class="cell bg-blue-500" style="grid-column: 2; grid-row: 3;"></div>
+                        <div id="bc4" class="cell bg-blue-500" style="grid-column: 2; grid-row: 2;"></div>
+                        <div id="bc5" class="cell bg-blue-500" style="grid-column: 2; grid-row: 1;"></div>
+                    </div>
+                </div>
+                <!-- Dice for red player -->
+                <div class="flex flex-col items-center -mt-8 ml-64" id="dice_con_red">
+                    <div id="currentPlayerred" class="mt-8 px-4 py-2 bg-blue-500 text-white font-bold rounded text-sm">Player Red's turn</div>
+                    <div id="dicered" class="dice mt-8">
+                        <div class="face front">1</div>
+                        <div class="face back">2</div>
+                        <div class="face left">3</div>
+                        <div class="face right">4</div>
+                        <div class="face bottom">5</div>
+                        <div class="face top">6</div>
+                    </div>
+                    <button id="rollButtonred" class="mt-8 px-4 py-2 bg-blue-500 text-white font-bold rounded text-sm">Roll Dice</button>
+                </div>
+                <!-- Dice for green player -->
+                <div class="flex flex-col items-center hidden -mt-8 -ml-64" id="dice_con_green">
+                    <div id="currentPlayergreen" class="mt-8 px-4 py-2 bg-blue-500 text-white font-bold rounded text-sm">Player Green's turn</div>
+                    <div id="dicegreen" class="dice mt-8">
+                        <div class="face front">1</div>
+                        <div class="face back">2</div>
+                        <div class="face left">3</div>
+                        <div class="face right">4</div>
+                        <div class="face bottom">5</div>
+                        <div class="face top">6</div>
+                    </div>
+                    <button id="rollButtongreen" class="mt-8 px-4 py-2 bg-blue-500 text-white font-bold rounded text-sm">Roll Dice</button>
+                </div>
+                <!-- Dice for yellow player -->
+                <div class="flex flex-col items-center hidden mt-3 -ml-64" id="dice_con_yellow">
+                    <div id="currentPlayeryellow" class="mt-8 px-4 py-2 bg-blue-500 text-white font-bold rounded text-sm">Player Yellow's turn</div>
+                    <div id="diceyellow" class="dice mt-8">
+                        <div class="face front">1</div>
+                        <div class="face back">2</div>
+                        <div class="face left">3</div>
+                        <div class="face right">4</div>
+                        <div class="face bottom">5</div>
+                        <div class="face top">6</div>
+                    </div>
+                    <button id="rollButtonyellow" class="mt-8 px-4 py-2 bg-blue-500 text-white font-bold rounded text-sm">Roll Dice</button>
+                </div>
+                <!-- Dice for blue player -->
+                <div class="flex flex-col items-center hidden mt-3 ml-64" id="dice_con_blue">
+                <div id="currentPlayerblue" class="mt-8 px-4 py-2 bg-blue-500 text-white font-bold rounded text-sm">Player Blue's turn</div>
+                <div id="diceblue" class="dice mt-8">
+                    <div class="face front">1</div>
+                    <div class="face back">2</div>
+                    <div class="face left">3</div>
+                    <div class="face right">4</div>
+                    <div class="face bottom">5</div>
+                    <div class="face top">6</div>
+                </div>
+                <button id="rollButtonblue" class="mt-8 px-4 py-2 bg-blue-500 text-white font-bold rounded text-sm">Roll Dice</button>
+            </div>
+            </div>
+        </div>
+        <script src="script.js"></script>
+        <script src="../../security.js"></script>
+    </body>
+</html>

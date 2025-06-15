@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="en" class="h-full bg-gray-100">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width,initial-scale=1.0">
+        <title>Game Setup</title>
+        <link rel="stylesheet" href="style.css">
+        <link rel="icon" type="image/x-icon" href="../../img/favico.ico">
+    </head>
+    <body class="h-full flex items-center justify-center">
+        <div class="max-w-md w-full space-y-8 p-8 bg-white shadow-lg rounded-lg">
+            <form id="gameSetupForm" class="mt-8 space-y-6">
+                <h2 class="text-3xl font-extrabold text-gray-900 text-center">Game Setup</h2>
+                <div>
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Number of Players:</label>
+                    <div class="flex justify-between space-x-2">
+                        <button type="button" class="player-count-btn flex-1 py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" data-players="2">
+                            2 Players
+                        </button>
+                        <button type="button" class="player-count-btn flex-1 py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" data-players="3">
+                            3 Players
+                        </button>
+                        <button type="button" class="player-count-btn flex-1 py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500" data-players="4">
+                            4 Players
+                        </button>
+                    </div>
+                </div>
+                <div id="colorSelection" class="hidden space-y-4">
+                    <label class="block text-sm font-medium text-gray-700 mb-2">Select Colors:</label>
+                    <div class="flex justify-between space-x-2">
+                        <button type="button" class="color-btn flex-1 py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gradient-to-r from-green-500 to-blue-500 hover:from-green-600 hover:to-blue-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500" data-colors="green,blue">
+                            Green & Blue
+                        </button>
+                        <button type="button" class="color-btn flex-1 py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-gradient-to-r from-red-500 to-yellow-500 hover:from-red-600 hover:to-yellow-600 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-red-500" data-colors="red,yellow">
+                            Red & Yellow
+                        </button>
+                    </div>
+                </div>
+                <div id="playerNames" class="space-y-4 hidden">
+                    <!-- Player input fields will be dynamically added here -->
+                </div>
+                <div>
+                    <button type="submit" class="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-green-600 hover:bg-green-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-green-500">
+                        Start Game
+                    </button>
+                </div>
+            </form>
+        </div>
+        
+        <script>
+            const playerCountButtons=document.querySelectorAll('.player-count-btn');
+            const colorButtons=document.querySelectorAll('.color-btn');
+            const playerNamesDiv=document.getElementById('playerNames');
+            const gameSetupForm=document.getElementById('gameSetupForm');
+            const colorSelectionDiv=document.getElementById('colorSelection');
+
+            let selectedColors=[];
+            let playerCount=0;
+
+            playerCountButtons.forEach(button=>{
+                button.addEventListener('click',()=>{
+                    playerCount=parseInt(button.getAttribute('data-players'));
+                    playerCountButtons.forEach(btn=>btn.classList.remove('bg-indigo-800'));
+                    button.classList.add('bg-indigo-800');
+                    
+                    // Show color selection only for 2 players
+                    if(playerCount===2) 
+                    {
+                        colorSelectionDiv.classList.remove('hidden');
+                        playerNamesDiv.classList.add('hidden');
+                    } 
+                    else 
+                    {
+                        colorSelectionDiv.classList.add('hidden');
+                        selectedColors=getDefaultColors(playerCount);
+                        updatePlayerInputs(playerCount);
+                    }
+                });
+            });
+
+            colorButtons.forEach(button=>{
+                button.addEventListener('click',()=>{
+                    colorButtons.forEach(btn=>btn.classList.remove('ring-2','ring-offset-2','ring-black'));
+                    button.classList.add('ring-2','ring-offset-2','ring-black');
+                    selectedColors=button.getAttribute('data-colors').split(',');
+                    updatePlayerInputs(playerCount);
+                });
+            });
+
+
+            function getDefaultColors(count) 
+            {
+                const allColors=['red','green','yellow','blue'];
+                return allColors.slice(0,count);
+            }
+
+            function updatePlayerInputs(count) 
+            {
+                playerNamesDiv.innerHTML='';
+                for(let i=1;i<=count;i++) 
+                {
+                    const playerInput=document.createElement('div');
+                    playerInput.className='player-input flex items-center space-x-2';
+                    playerInput.innerHTML=`
+                        <div class="color-indicator w-6 h-6 rounded-full" style="background-color: ${selectedColors[i-1]}"></div>
+                        <div class="flex-grow">
+                            <label for="player${i}" class="block text-sm font-medium text-gray-700">Player ${i} Name:</label>
+                            <input type="text" id="player${i}" name="player${i}" required class="mt-1 focus:ring-indigo-500 focus:border-indigo-500 block w-full shadow-sm sm:text-sm border-gray-300 rounded-md">
+                        </div>
+                    `;
+                    playerNamesDiv.appendChild(playerInput);
+                }
+                playerNamesDiv.classList.remove('hidden');
+            }
+
+            // Add form submission event listener
+            gameSetupForm.addEventListener('submit',function(event) {
+                event.preventDefault();// Prevent the default form submission
+
+                // Check if player count has been selected
+                if (playerCount === 0) {
+                    alert("Please select the number of players before starting the game.");
+                    return;
+                }
+                // Collect player names
+                const playerNames={};
+                const inputs=playerNamesDiv.querySelectorAll('input[type="text"]');
+                inputs.forEach((input,index)=>{
+                    playerNames[selectedColors[index]]=input.value;
+                });
+
+                // Store player names and colors in localStorage
+                localStorage.setItem('playerNames',JSON.stringify(playerNames));
+                localStorage.setItem('selectedColors',JSON.stringify(selectedColors));
+
+                // Navigate to index.html
+                window.location.href='game.html';
+            });
+        </script>
+        <script src="../../security.js"></script>
+    </body>
+</html>
